@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-dataset = pd.read_csv('kc_house_data.csv', sep=',')
+dataset = pd.read_csv('kc_house_data.csv', sep=',', encoding='latin1')
 
 def categorize(price):
     if price > 500000:
