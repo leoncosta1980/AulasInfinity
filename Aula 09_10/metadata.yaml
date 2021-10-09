@@ -1,0 +1,10 @@
+measurement_units:
+  board_length: meters
+  board_nose_rocker: inches
+  board_tail_rocker: inches
+  board_thickness: inches
+  board_volume: litters
+  board_width: inches
+  surfer_height: meters
+  surfer_weight: kilograms
+  wave_height: feet
