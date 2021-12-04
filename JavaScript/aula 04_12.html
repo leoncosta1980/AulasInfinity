@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<form id="frm1" action="#">Informe um número: <input type="text" id="entrada"><br>
+<input type="button" value="Executar" onclick="myFunction()">
+</form>
+<p id="resposta">Resposta: </p>
+<script>
+function myFunction() {
+let frm = document.forms['frm1'];
+let entrada = frm.elements.entrada.value;
+let resultado = "";
+if (entrada > 10){
+    resultado = "O número é grande";
+}else {
+    resultado = "O número é pequeno";
+}
+document.getElementById('resposta').innerHTML = resultado;
+}
+</script>
+</body>
+</html>

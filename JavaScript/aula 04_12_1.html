@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<form id="frm1" action="#">Digite a frase: <input type="text" id="entrada"><br>
+<input type="button" value="Executar" onclick="myFunction()">
+</form>
+<p id="resposta">Resposta: </p>
+<script>
+function myFunction() {
+let frm = document.forms['frm1'];
+let entrada = frm.elements.entrada.value;
+let resultado = "";
+if ((entrada.length >= 1) && (entrada.length <= 20)){
+    resultado = "O texto é pequeno.";
+}else if ((entrada.length > 20) && (entrada.length <= 30)){
+    resultado = "O texto é médio.";
+}else if ((entrada.length > 31) && (entrada.length <= 40)){
+    resultado = "O texto é grande.";
+}else{((entrada.length = 0) && (entrada.length > 40))
+    resultado = "Não vou contar o tamanho da frase."
+}
+document.getElementById('resposta').innerHTML = resultado;
+}
+</script>
+</body>
+</html>
