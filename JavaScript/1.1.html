@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang=“pt-br”>
+	<head>
+		<title>Sua bebida favorita</title>
+	</head>
+	<body>
+		<form id="frm1" action="#">
+		Qual sua bebida favorita? <input type="text" id="entrada"><br><br>
+		<input type="button" value="Executar" onclick="myFunction()">
+		</form> 
+
+<p id="resposta"></p>
+
+<script>
+	function myFunction() {
+	  let frm = document.forms['frm1'];
+	  let entrada = frm.elements.entrada.value;
+	  let resposta = "Sua bebida favorita é <strong>" + entrada + "</strong>";
+	  document.getElementById("resposta").innerHTML = resposta;
+	}
+</script>
+
+	</body>
+</html>

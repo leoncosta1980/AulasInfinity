@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang=“pt-br”>
+	<head>
+		<title>Retorna info</title>
+	</head>
+	<body>
+		<form id="frm1" action="#">
+		Informe seu nome: <input type="text" id="nome"><br><br>
+        Informe seu sobrenome: <input type="text" id="snome"><br><br>
+        Informe seu ano de nascimento: <input type="number" id="anoNasc"><br><br>
+		<input type="button" value="Executar" onclick="myFunction()">
+		</form> 
+
+<p id="resposta"></p>
+
+<script>
+	function myFunction() {
+	  let frm = document.forms['frm1'];
+      let nome = frm.elements.nome.value;
+      let snome = frm.elements.snome.value;
+      let anoNasc = frm.elements.anoNasc.value;
+	  var dadosUsr = {
+          nome:nome,
+          sobrenome:snome,
+          anoNascimento:anoNasc
+      };
+	  let resposta = "Seu nome é <strong>" + dadosUsr.nome + " " + dadosUsr.sobrenome + "</strong> e nasceu em <strong>" + dadosUsr.anoNascimento + "</strong>.";
+	  document.getElementById("resposta").innerHTML = resposta;
+	}
+</script>
+
+	</body>
+</html>
