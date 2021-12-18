@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+
+    <script>
+        function  exibeDadosPess(){
+            let dadoPessoal = 'Moro em <strong>Lauro de Freitas</strong>'
+            document.getElementById('pessoal').innerHTML = dadoPessoal;
+        }
+
+        function exibeDadosProf(){
+            let skills = "<ul>" +
+                            "<li>Desenvolvedor Web</li>" +
+                            "<li>Desenvolvedor Python</li>" +               
+                "</ul>";
+            document.getElementById('profissional').innerHTML = skills;
+        }
+        function limparPagina(){
+            document.getElementById('pessoal').innerHTML = '';
+            document.getElementById('profissional').innerHTML = '';
+        }
+
+    </script>
+
+    <body>
+        <h2>Meu nome é Leonardo Costa</h2>
+        <p id= "pessoal"></p>
+        <p id= "profissional"></p>
+        <button type="button" onclick="exibeDadosPess();">Dados Pessoais</button>
+        <button type="button" onclick="exibeDadosProf();">Dados Profissionais</button>
+        <button type="button" onclick="limparPagina();">Limpar Página</button>
+    </body>
+</html>

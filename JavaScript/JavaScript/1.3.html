@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang=“pt-br”>
+	<head>
+		<title>Várias bebidas</title>
+	</head>
+	<body>
+		<form id="frm1" action="#">
+		Quais suas bebidas favoritas? <input type="text" id="entrada"><br><br>
+		<input type="button" value="Armazenar Bebidas" onclick="armazenar()">
+        <input type="button" value="Mostrar Bebidas Favoritas" onclick="mostrar()">
+		<input type="button" value="Limpar lista" onclick="limparLista()">
+		</form>
+
+<p id="resposta"></p>
+<script>
+    const bebidas = [];
+	function armazenar() {
+	  let frm = document.forms['frm1'];
+      let entrada = frm.elements.entrada.value;
+      bebidas.push(entrada);
+	}
+	function mostrar() {
+	  let resposta = "Sua bebida favorita é <strong>" + bebidas + "</strong>.";
+	  document.getElementById("resposta").innerHTML = resposta;
+	}
+</script>
+
+	</body>
+</html>

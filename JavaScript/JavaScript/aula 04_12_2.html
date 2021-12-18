@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<form id="frm1" action="#">Informe a hora: <input type="text" id="entrada"><br>
+<input type="button" value="Executar" onclick="myFunction()">
+</form>
+<p id="resposta">Resposta: </p>
+<script>
+function myFunction() {
+    let frm = document.forms['frm1'];
+    let entrada = frm.elements.entrada.value;
+    let saudacao = retornaSaudacao(entrada);
+    alert(saudacao);
+}
+
+
+function retornaSaudacao(hora){
+    if ((hora >= 0) && (hora < 12)){
+        saudacao = "Bom dia.";
+    }else if ((hora >= 12) && (hora < 18)){
+        saudacao = "Boa Tarde.";
+    }else if ((hora >= 18) && (hora < 24)){
+        saudacao = "Boa noite."
+    }else{
+        saudacao = "O valor informado não corresponde a uma hora válida."
+    }return saudacao;
+}
+//document.getElementById('resposta').innerHTML = saudacao;
+
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Jogo da Velha</title>
+        <style>
+
+            body{
+                font-size: 18px;
+            }
+            .alinhamento{
+                width: 500px;
+                margin: auto;
+                text-align: center;    
+            }
+            .topo{
+                color: white;
+                background-color:#457b9d;
+                padding: 10px;
+            }
+            .tabuleiro{
+                background-color:#457b9d;
+                padding: 10px;
+
+            }
+            .casa{
+                width: 100px;
+                height: 100px;
+                margin: 10px 5px;
+                background-color: #e63946;
+            }
+            .reiniciar{
+                font-size:1.5rem;
+                text-align: center;
+                background-color: #a8dadc;
+                color: #1d3557;
+                border-radius:10px;
+                margin-top:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topo alinhamento">
+            <h1>Jogo da Velha</h1>
+            <p id="mensagem">Mensagem do jogo (vez/fim)</p>
+        </div>
+        <div class="tabuleiro alinhamento">
+                <button class="casa" id="0" onclick="jogada(this)"></button>
+                <button class="casa" id="1" onclick="jogada(this)"></button>
+                <button class="casa" id="2" onclick="jogada(this)"></button>
+                <br>
+                <button class="casa" id="3" onclick="jogada(this)"></button>
+                <button class="casa" id="4" onclick="jogada(this)"></button>
+                <button class="casa" id="5" onclick="jogada(this)"></button>
+                <br>
+                <button class="casa" id="6" onclick="jogada(this)"></button>
+                <button class="casa" id="7" onclick="jogada(this)"></button>
+                <button class="casa" id="8" onclick="jogada(this)"></button>
+                <br>
+                <button class="reiniciar" onclick="reinicia()";>Reiniciar</button>                
+        </div>
+        <script>
+            var jog = "x"; // identifica o jogador
+            var tab = []; // cria array de tabuleiro vazio
+            var gameOver = 0;
+            //primeiro aviso de quem é a vez
+          
+            mostraVez();
+            
+            function jogada(bt){
+            if (gameOver ==1)
+                return;
+                if (typeof tab[bt.id] !== "undefined"){
+                    alert("Escolha outra casa!");
+                    return;
+                }
+                tab[bt.id] = jog;
+                bt.innerHTML = `<img src="${jog}.png" alt="">`;
+                
+                if (verificaCondicaoVitoria()){
+                    mostraVencedor();
+                    gameOver = 1;
+                    return;
+                }
+
+                if (jog == "x")
+                    jog = "o";
+                else{
+                    jog = "x";
+                }
+                mostraVez()
+            }
+            function verificaCondicaoVitoria(){
+                //teste horizontal
+                let i = 0;
+                while (i < 10){
+                    if ((tab[i] == tab[i+1]) && (tab[i] == tab[i+2]) && typeof tab[i] !== "undefined"){
+                        console.log('Acertou linha: '+jog);
+                        return true;
+                    }
+                    i+=3;
+                }
+                //teste vertical
+                i = 0;
+                while (i < 10){
+                    if ((tab[i] == tab[i+3]) && (tab[i] == tab[i+6]) && typeof tab[i] !== "undefined"){
+                        console.log('Acertou coluna: '+jog);
+                        return true;
+                    }
+                    i++;
+                }
+
+                //teste diagonal
+                if ((tab[0] == tab[4]) && (tab[0] == tab[8]) && typeof tab[i] !== "undefined"){
+                        console.log('Acertou diagonal 1: '+jog);
+                        return true;
+                }
+                if ((tab[2] == tab[4]) && (tab[2] == tab[8]) && typeof tab[i] !== "undefined"){
+                        console.log('Acertou diagonal 2: '+jog);
+                        return true;
+            }
+            return false;
+        }
+            function mostraVez() {
+                document.getElementById('mensagem').innerHTML = `É a vez do Jogador <img src="${jog}.png">`;
+            }
+
+            function mostraVencedor(){
+                document.getElementById('mensagem').innerHTML = `O Jogador <img src="${jog}.png">Venceu!`;
+                console.log("ola");
+            }
+            function reinicia(){
+                window.location.reload();
+            }
+        </script>
+    </body>
+</html>
