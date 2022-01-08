@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM – Atividade 1</title>
+    <style>
+
+        .mudacor{
+            font-weight: bold;
+        }
+        .vermelho{
+            color: red;
+        }
+        .azul{
+            color: blue;
+        }
+        .verde{
+            color: green;
+        }
+        .amarelo{
+            color: yellow;
+        }
+        .cinza{
+            background-color: gray;
+        }
+
+        .container{
+            /*display: flex;*/
+        }
+
+        .item{
+            border: '1px solid black';
+            padding: '5px';
+            margin: 0px;
+            margin-top: 5px;
+        }
+
+        .btn{
+            float: right;
+            margin-right: 20px;
+
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        
+    </div>
+    <button onclick="incluir()">incluir</button>
+    <!--button onclick="remover()">remover</button-->
+    <script>
+        
+        function incluir(){
+
+            let novoP = document.createElement('p');
+            let count = document.querySelectorAll('.item').length;
+            
+            
+            novoP.classList.add('item');
+            if (count % 2 == 0){
+                novoP.classList.add('cinza');
+            }
+
+            let checkB = document.createElement('input');
+            checkB.type = "checkbox";
+            //checkB.classList.add('removeButton');
+            /*
+            checkB.addEventListener("click", function() {
+                remover(count);
+            });*/
+            
+
+            let btnRemove = document.createElement('button');
+            btnRemove.innerHTML = "X";
+            btnRemove.classList.add('btn');
+            btnRemove.addEventListener("click", function() {
+                remover(count);
+            });
+
+            let btnEdit = document.createElement('button');
+            btnEdit.innerHTML = "E";
+            btnEdit.classList.add('btn');
+            btnEdit.addEventListener("click", function() {
+                editar(count);
+            });
+            
+            novoP.appendChild(checkB);
+            let texto = count + ": " + prompt("Digite o texto") 
+            novoP.innerHTML += '<span id="listitem'+count+'">' + texto +'</span>';
+            
+            novoP.appendChild(btnRemove);
+            novoP.appendChild(btnEdit);
+
+            document.getElementById('container').appendChild(novoP);
+            
+        }
+
+        function editar(index){
+
+            //let itens = document.querySelectorAll('.item');
+            //console.log(index);
+           // if (itens.length != 0 ){
+           
+           document.getElementById('listitem' + index).innerHTML = index + ": " + prompt("Digite o texto a editar");
+            //}
+        }
+
+        function remover(index){
+
+            let resposta = confirm("Tem certeza que deseja excluir?");
+            if (!resposta)
+                return;
+
+            let itens = document.querySelectorAll('.item');
+            console.log(index);
+            // if (itens.length != 0 ){
+                document.getElementById('container').removeChild(itens[index]);
+            //}
+        }
+
+
+
+
+            /*
+            //let p = document.getElementById("prgf01");
+            let ps = document.querySelectorAll("p div");
+            ps.length
+
+            let paragrafos = document.getElementsByClassName('mudacor');
+           
+            let corIndex = Math.floor(Math.random() * cores.length);
+                
+            for (i = 0; i < paragrafos.length; i++){
+                
+                for (j = 0; j < cores.length; j++){
+                    paragrafos[i].classList.remove(cores[j]);
+                }
+                paragrafos[i].classList.add(cores[corIndex]);
+
+                
+                if (paragrafos[i].classList.contains('azul')){
+                    paragrafos[i].classList.add("verde");
+                    paragrafos[i].classList.remove("azul");    
+                } else if (paragrafos[i].classList.contains('verde')){
+                    paragrafos[i].classList.add("vermelho");
+                    paragrafos[i].classList.remove("verde");  
+                }else{
+                    paragrafos[i].classList.add("azul");
+                    paragrafos[i].classList.remove("vermelho");  
+                }
+
+                //paragrafos[i].classList.add("mudacor2");
+                //paragrafos[i].style.color = 'red';
+                //paragrafos[i].style.fontWeight = 'bold';
+            }*/
+
+        //}
+    </script>
+</body>
+
+</html>
