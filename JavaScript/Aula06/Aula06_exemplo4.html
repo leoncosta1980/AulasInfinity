@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Eventos - Exemplo 4</title>
+        <style>
+            img {width:130px; height: 150px}
+        </style>
+    </head>
+    <body>
+        <p>Passe o cursor do mouse sobre as imagens abaixo:</p>
+        <img id="bt" src="minion.jpg">
+        <img id="sh" src="minion.jpg">
+        <img id="mm" src="minion.jpg"><br>
+        <img id="hf" src="minion.jpg">
+        <img id="hk" src="minion.jpg">
+        <img id="ca" src="minion.jpg">
+        
+        <script>
+            var imagem = document.getElementsByTagName('img');
+
+            for (let i=0; i<imagem.length; i++) {
+                imagem[i].onmouseover = function () {
+                    imagem[i].src = "minion"+imagem[i].id+".jpg";
+                };
+                imagem[i].onmouseout = function () {
+                        imagem[i].src = "minion.jpg";
+                };
+            }
+        </script>
+    </body>
+</html>

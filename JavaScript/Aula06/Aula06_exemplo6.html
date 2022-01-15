@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Eventos - Exemplo 5</title>
+        <style>
+            .cxExterna {width:600px; height: 300px;
+                        border: 2px solid black;
+                        background-color: white;
+                        display:flex;
+            }
+            .cxInterna {width:200px; height:200px;
+                        border: 2px solid black;
+                        background-color: white;
+                        margin:auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cxExterna" id="cxExt">
+            Caixa Externa<br>
+            <div class="cxInterna" id="cxInt">
+                Caixa Interna
+            </div>
+        </div>
+
+        <script>
+            // Esta função gera um número aleatório entre 0 e 255
+            function randomico() {
+                return Math.floor(Math.random()*(256));
+            }
+
+            // Esta função muda a cor da caixa
+            function mudaCor() {
+                var cor = 'rgb(' + randomico() + ',' 
+                            + randomico() + ',' 
+                            + randomico() + ')';
+                this.style.backgroundColor = cor;
+            }
+
+            // Este trecho controla o comportamento das caixas
+            var cxExt = document.getElementById('cxExt');
+            cxExt.onclick = mudaCor;
+            var cxInt = document.getElementById('cxInt');
+            cxInt.onclick = mudaCor;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Eventos - Exemplo 5</title>
+    </head>
+    <body>
+        <div style="margin-left: 30px;">
+            <h1>Conta</h1>
+            Entrada:<br>
+            <input type="number" id="en" value="0"><br>
+            Refeição:<br>
+            <input type="number" id="pp" value="0"><br>
+            Sobremesa:<br>
+            <input type="number" id="sb" value="0"><br>
+            Bebida:<br>
+            <input type="number" id="gr" value="0"><br>
+            <br>
+            <p id="tot">Total do consumo:</p>
+            <p id="gor">Gorjeta (10%):</p>
+            <p id="vlp">Valor a pagar:</p>
+        </div>
+        
+        <script>
+            var consumo = document.querySelectorAll('input');
+            var total = 0;
+            for (var i=0; i<consumo.length; i++) {
+                consumo[i].addEventListener('change',soma);
+            }
+
+            function soma() {
+                total = 0;
+                for (var j=0; j<consumo.length; j++) {
+                        if(!isNaN(parseFloat(consumo[j].value))){
+                        total += parseInt(consumo[j].value);
+                        console.log(total)
+                }       else{
+                        consumo[j].value = 0
+                }
+            }
+                document.getElementById('tot').innerHTML = 
+                        "Total do consumo: "+total.toFixed(2);
+                document.getElementById('gor').innerHTML = 
+                        "Gorjeta (10%): "+(total*0.1).toFixed(2);
+                document.getElementById('vlp').innerHTML = 
+                        "Valor a pagar: "+(total*1.1).toFixed(2);
+            }
+        </script>
+
+    </body>
+</html>

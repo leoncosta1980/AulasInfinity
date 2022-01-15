@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Eventos - Exemplo 3</title>
+        <style>
+            img {width: 130px; height: 150px}
+        </style>
+    </head>
+    <body>
+        <p>Passe o cursor do mouse sobre as imagens abaixo:</p>
+        <img id="bt" onmouseover="muda('bt')" 
+                    onmouseout="volta('bt')" src="minion.jpg">
+        <img id="sh" onmouseover="muda('sh')" 
+                    onmouseout="volta('sh')" src="minion.jpg">
+        <img id="mm" onmouseover="muda('mm')" ]
+                    onmouseout="volta('mm')" src="minion.jpg"><br>
+        <img id="hf" onmouseover="muda('hf')" 
+                    onmouseout="volta('hf')" src="minion.jpg">
+        <img id="hk" onmouseover="muda('hk')" 
+                    onmouseout="volta('hk')" src="minion.jpg">
+        <img id="ca" onmouseover="muda('ca')" 
+                    onmouseout="volta('ca')" src="minion.jpg">
+        
+        <script>
+            function muda(idMinion) {
+                var imagem = document.getElementById(idMinion);
+                switch (imagem.id) {
+                    case "bt":  imagem.src = "minionbt.jpg"; 
+                                break;
+                    case "sh":  imagem.src = "minionsh.jpg"; 
+                                break;
+                    case "mm":  imagem.src = "minionmm.jpg"; 
+                                break;
+                    case "hf":  imagem.src = "minionhf.jpg"; 
+                                break;
+                    case "hk":  imagem.src = "minionhk.jpg"; 
+                                break;
+                    case "ca":  imagem.src = "minionca.jpg"; 
+                                break;
+                    default: x.src = "minion.jpg";
+                }
+            }
+            function volta(idMinion) {
+                var imgVolta = document.getElementById(idMinion);
+                imgVolta.src = "minion.jpg";
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Eventos - Exemplo 5</title>
+    </head>
+    <body>
+        <form>
+            Nome <input type="text"><br><br>
+            Esporte preferido:<br>
+            <input type="radio" id="btradio1" name="espref">
+            Futebol<br>
+            <input type="radio" id="btradio2" name="espref">
+            Tenis<br>
+            <input type="radio" id="btradio3" name="espref">
+            Basquete<br><br>
+            <img id="img" src=""><br><br>
+            <input type="submit" value="Enviar">
+        </form>
+        <script>
+            var btn1 = document.getElementById('btradio1').onclick = mudaImg;
+            
+            function mudaImg() {
+                document.getElementById('img').innerHTML = img.url('bfutebol.jpg');
+            }
+
+        </script>
+    </body>
+</html>

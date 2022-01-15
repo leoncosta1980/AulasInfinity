@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Eventos - Atividade 1</title>
+        <style>
+            div     { margin:auto; text-align: center;}
+            #caixa  { width:500px; height: 300px; border: 2px solid black;}
+            #ret    { width:400px; height: 100px; padding-top: 20px; 
+                        border: 2px solid black;}
+            button  { color:white; width: 100px; height: 30px; font-weight: bold;}
+            #bt1    { background-color: blue;}
+            #bt2    { background-color: green;}
+            #bt3    { background-color: red;}
+        </style>
+    </head>
+    <body>
+        <div id="caixa">
+            <br>ATIVIDADE 1<br><br>
+            <div id="ret" onmouseover="mudaCor('white')">
+                Este retângulo muda de cor.
+            </div>
+            <br><br>
+            <div>
+                <button id="bt1" onclick="mudaCor('blue')">COR 1</button>
+                <button id="bt2" onclick="mudaCor('green')">COR 2</button>
+                <button id="bt3" onclick="mudaCor('red')">COR 3</button>
+            </div>
+        </div>
+
+        <script>
+            function mudaCor(cor) {
+                document.getElementById('ret').style.backgroundColor = cor;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Eventos - Exemplo 2</title>
+    </head>
+    <body>
+        <p>Escolha uma das cores abaixo:</p>
+        <select id="cores" onchange="processaCor()">
+            <option value="white">Branco</option>
+            <option value="blue">Azul</option>
+            <option value="green">Verde</option>
+            <option value="yellow">Amarelo</option>
+            <option value="red">Vermelho</option>
+        </select>
+        <p>A escolha da cor vai disparar a execução <br>
+            de uma função que vai alterar as cores da página</p>
+        
+        <script>
+            function processaCor() {
+                var x = document.getElementById("cores").value;
+                document.body.style.backgroundColor = x;
+            }
+        </script>
+    </body>
+</html>
