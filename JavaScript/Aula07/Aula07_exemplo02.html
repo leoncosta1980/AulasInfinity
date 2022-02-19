@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Aula 07 - Exemplo 2</title>
+        <style>
+            div { border: 1px solid black; width: 500px; }
+        </style>
+    </head>
+    <body>
+        <h1>Esta página está lendo um cookie</h1>
+        <div>
+            Este é o conteúdo completo do cookie:
+            <p id="ck"></p>
+        </div>
+        <div>
+            Aqui estão os nomes das chaves e valores do cookie:
+            <p id="chv_ck"></p>
+        </div>
+        <div>
+            Aqui estão apenas os valores atibuídos à cada chave:
+            <p id="val_ck"></p>
+        </div>
+        <script>
+            // guardando todos os cookies em uma variável (string)
+            var biscoitos = document.cookie;
+
+            // exibindo a string inteira dos cookies na página
+            document.getElementById("ck").innerHTML = biscoitos;
+
+            // separando cada chave+valor de cada cookie
+            var cadaCookie = biscoitos.split(";");
+            
+            // exibindo cada par "chave=valor"
+            var chaves = "";
+            for (let i=0; i<cadaCookie.length; i++) {
+                chaves = chaves + "cookie " + i + ": " + cadaCookie[i] + "<br>";
+            }
+            document.getElementById("chv_ck").innerHTML = chaves;
+
+            // exibindo apenas os valores de cada par "chave=valor"
+            var valores = "";
+            for (let i=0; i<cadaCookie.length; i++) {
+                var inicio = cadaCookie[i].indexOf("=") + 1;
+                var val = cadaCookie[i].substring(inicio);
+                valores = valores + "valor do cookie " + i + ": " + val + "<br>";
+            }
+            document.getElementById("val_ck").innerHTML = valores;
+
+            // OBS: claro que há meios mais simples de recuperar
+            // os valores dos cokies. Este exemplo foi propositadamente
+            // escrito para mostrar a manipulação da string, e não 
+            // pretende ser um exemplo de programação eficiente ou recomendada.
+        </script>
+    </body>
+</html>

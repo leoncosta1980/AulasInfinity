@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Aula 07 - Produtos</title>
+        <style>
+            .caixa { display:flex;}
+            .item {width:150px; margin: auto;}
+            img {width:70px; height: 90px;}
+        </style>
+    </head>
+    <body>
+        <h1>Produtos à Venda na Loja HQTop</h1>
+        <div class="caixa">
+            <div class="item">
+                <img src="img_item1.jpg"><br>
+                <button onclick="incluir_no_carrinho('item1')"">
+                    Colocar no Carrinho</button>
+            </div>
+            <div class="item">
+                <img src="img_item2.jpg"><br>
+                <button onclick="incluir_no_carrinho('item2')"">
+                    Colocar no Carrinho</button>
+            </div>
+            <div class="item">
+                <img src="img_item3.jpg"><br>
+                <button onclick="incluir_no_carrinho('item3')"">
+                    Colocar no Carrinho</button>
+            </div>
+            <div class="item">
+                <img src="img_item4.jpg"><br>
+                <button onclick="incluir_no_carrinho('item4')"">
+                    Colocar no Carrinho</button>
+            </div>
+            <div class="item">
+                <img src="img_item5.jpg"><br>
+                <button onclick="incluir_no_carrinho('item5')"">
+                    Colocar no Carrinho</button>
+            </div>
+        </div>
+        <br><br>
+        <div>
+            <p>Total de itens no carrinho: <span id="qtd">0</span></p>
+            <a href="Aula07_projeto_carrinho2.html">Ir para o carrinho de compras</a>
+        </div>
+
+        <script>
+            var qtdItens = 0;
+            document.cookie = "carrinho=";
+            
+            function incluir_no_carrinho(item) {
+                if (document.cookie.length==9) {  // se for verdade o carrinho está vazio
+                    document.cookie = document.cookie+item;
+                } else {
+                    document.cookie = document.cookie+"-"+item;
+                }
+                qtdItens++;
+                document.getElementById("qtd").innerHTML = qtdItens;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Aula 07 - Carrinho</title>
+        <style>
+            img {width:70px; height: 90px;}
+        </style>
+    </head>
+    <body>
+        <h1>Seu Carrinho de Compras</h1>
+        <p>Total de itens no carrinho: <span id="qtd">0</span></p>
+        <div id="car">
+            Aqui devem aparecer os itens comprados.
+        </div>
+        <br>
+        <div>
+            <button onclick="limpa_carrinho()">Limpar o Carrinho</button>
+            <button onclick="alert('Compra finalizada!\nCarrinho enviado para o servidor.')">
+                Finalizar Compra
+            </button>
+            <br><br>
+            <a href="Aula07_projeto_produtos2.html">Voltar para a página de produtos</a>
+        </div>
+
+        <script>
+            var compras = "";
+            var itens = [];
+            var ck = document.cookie.substring(9); // extrai "carrinho=" do cookie
+            if (ck.length>0) { // se for verdadeiro o carrinho tem itens
+                var itens = ck.split("-");
+                for(let i=0; i<itens.length; i++) {
+                    compras = compras + "<img src='img_"+itens[i]+".jpg'> " +
+                                "<button onclick=retira_carrinho('"+itens[i]+"')>" +
+                                "Retirar do Carrinho</button><br>";
+                }
+            }
+            document.getElementById("qtd").innerHTML = itens.length;
+            document.getElementById("car").innerHTML = compras;
+
+            function retira_carrinho(ch){
+                let novo_ck = "carrinho=";
+                for(let i=0; i<itens.length; i++) {
+                    if (itens[i]!=ch) {
+                        if (novo_ck.length==9) {  // se for verdade o carrinho está vazio
+                            novo_ck = novo_ck + itens[i];
+                        } else {
+                            novo_ck = novo_ck + "-" + itens[i];
+                        }
+                    }
+                }
+                document.cookie = novo_ck;
+                window.location.reload();
+            }          
+
+            function limpa_carrinho(){
+                document.cookie= "carrinho=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                window.location.reload();
+            }          
+
+            </script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Aula 07 - Atividade 2</title>
+    </head>
+    <body>
+        <h1>Apagando todos os cookies da página</h1>
+
+        <script>
+            var ck = document.cookie.split(";");
+
+            for (let i=0; i<ck.length; i++) {
+                document.cookie = ck[i]+ "; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            }
+            document.write(document.cookie+"<br>Pronto!");
+        </script>
+    </body>
+</html>

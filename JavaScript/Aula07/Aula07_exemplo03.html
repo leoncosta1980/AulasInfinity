@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Aula 07 - Exemplo 3</title>
+        <style>
+            div { border: 1px solid black; width: 500px; }
+        </style>
+    </head>
+    <body>
+        <h1>Esta página está ALTERANDO O VALOR de um cookie</h1>
+        <div>
+            Este é o conteúdo completo do cookie ANTES da alteração:
+            <p id="ck_antes"></p>
+        </div>
+        <div>
+            Este é o conteúdo completo do cookie DEPOIS da alteração:
+            <p id="ck_depois"></p>
+        </div>
+        <script>
+            // recuperando todos os cookies em uma variável (string)
+            var biscoitos = document.cookie;
+            // exibindo a string inteira dos cookies na página antes de apagar
+            document.getElementById("ck_antes").innerHTML = biscoitos;
+            // alterando o cookie cuja chave é "cidade"
+            document.cookie = "cidade=Belo Horizonte";
+            // recuperando todos os cookies em uma variável (string)
+            biscoitos = document.cookie;
+            // exibindo a string inteira dos cookies na página depois de apagar
+            document.getElementById("ck_depois").innerHTML = biscoitos;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Aula 07 - Exemplo 1</title>
+        <style>
+            div { border: 1px solid black; width: 500px; }
+        </style>
+    </head>
+    <body>
+        <h1>Esta página cria um cookie</h1>
+
+        <div id="ck">
+        </div>
+        
+        <script>
+            document.cookie = "nome=fulano";
+            document.cookie = "cidade=Savador";
+            document.cookie = "estado=Bahia; expires= Sat, 31 Dec 2022 23:59:59 UTC;";
+            document.getElementById("ck").innerHTML = 
+                "cookie criado:<br>" + document.cookie;
+        </script>
+    </body>
+</html>
