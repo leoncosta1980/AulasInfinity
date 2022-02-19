@@ -1,0 +1,64 @@
+body {
+    background-color: rgb(61, 129, 150);
+    max-width: 600px; 
+    margin: auto;
+}
+div {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 5px;
+    text-align: center;
+}
+#externo {
+    background-color: lightgrey;
+    color: white;
+}
+#cabecalho {
+    background-color: darkblue;
+    color: white;
+    font-size: x-large;
+}
+#conteudo {
+    background-color: lightcyan;
+    font-size: large;
+}
+.item {
+    background-color: lightskyblue;
+    margin: 5px;
+    padding: 2px;
+    display: flex;
+    align-items:center;
+    border-radius: 15px;
+}
+.item div {
+    width: 90%;
+    text-align: left;
+    border-style: none;
+    color: black;
+}
+.item input {
+    margin: 5px;
+    border-radius: 8px;
+}
+#novatarefa {
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    align-items:center;
+    border-radius: 15px;
+}
+#novatarefa input {
+    width: 90%;
+    margin: 5px;
+    border-radius: 8px;
+    border: 1px solid grey;
+    color: black;
+    font-weight: bold;
+}
+button {
+    color:red;
+    margin: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+}

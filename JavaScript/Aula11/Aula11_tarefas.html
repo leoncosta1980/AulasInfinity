@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Aula11_tarefas.css">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <div id="externo">
+        <div id="cabecalho">
+            Lista de Tarefas
+        </div>
+
+        <div id="conteudo">
+            <div class="item">
+                <input type="checkbox">
+                <div></div>
+                <button onclick="excluir()">X</button>
+            </div>
+        </div>
+
+        <div id="novatarefa">
+            <input type="text"
+                    id="desc" 
+                    placeholder="Digite e pressione o botão para adicionar a tarefa">
+            <button onclick="incluir()">NOVA</button>
+        </div>
+    </div>
+    <script src="aula11_tarefaresp.js"></script>
+</body>
+</html>
