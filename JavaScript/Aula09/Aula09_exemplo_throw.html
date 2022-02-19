@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<p>Informe um número 
+			entre 5 e 10</p>
+		<input
+			id="entrada" type="text">
+		<button type="button" 
+			onclick="trataValor()">
+			Testar</button>
+		<p id="resp"></p>
+		<script>
+			function trataValor() {
+				const message = document.getElementById("resp");
+				message.innerHTML = "";
+				let x =       document.getElementById("entrada").value;
+				try {
+					if(x == "") throw "Não informou";
+					if(isNaN(x)) throw "Não é um número";
+					x = Number(x);
+					if(x < 5) throw "Menor que 5";
+					if(x > 10) throw "Maior que 10";
+					message.innerHTML = "Tudo OK... Informou o número " + x;
+				}
+					catch(err) {
+						message.innerHTML = "Erro: " + err;
+				}
+			}
+		</script>
+	</body>
+</html>

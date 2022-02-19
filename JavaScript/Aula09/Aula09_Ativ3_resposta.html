@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <body>
+		<p>Atividade 3: Lojas e Capitais</p>
+		<form>
+			Nome da loja: <input id="loja" type="text"><br>
+			Cidade: <input id="cidade" type="text"><br>
+			Valor mensal de venda: <input id="valor" type="text"><br><br>
+			<input id="btenv" type="button" value="Enviar" onclick="trataForm()">
+			<input id="btref" type="button" value="Recarregar" onclick="location.reload()" 
+					style="display:none">
+		</form>
+		<p id="resp"></p>
+		<script>
+		function trataForm() {
+			var capsTexto = '{"capitais":[{"cidade":"Natal"},{"cidade":"Salvador"},' +
+										'{"cidade":"Maceió"},{"cidade":"Fortaleza"},' +
+										'{"cidade":"Recife"},{"cidade":"Teresina"},' +
+										'{"cidade":"São Luiz"},{"cidade":"João Pessoa"},' +
+										'{"cidade":"Aracaju"}]}';
+			try {
+				document.getElementById("resp").innerHTML = "";
+				var capsObjeto = JSON.parse(capsTexto);
+				var lj = document.getElementById("loja").value;
+				var cd = document.getElementById("cidade").value;
+				var vl = document.getElementById("valor").value;
+				if (!lj | !cd | !vl) { 
+					throw "Todos os campos devem ser preenchidos" }
+				if (vl < 0) { 
+					throw "Total de vendas não pode ser negativo"; }
+				if (capitalExiste(cd,capsObjeto)==false) {
+					throw "Cidade informada não é uma capital do nordeste"; }
+			} 
+			catch (e) {
+				document.getElementById("resp").innerHTML = 
+						"Aconteceu um erro: " + e;
+			}
+			finally {
+				document.getElementById("btref").style="display:block"; 
+			}
+		}
+		function capitalExiste (cidade,dados) {
+			let resposta = false;
+			for (let i=0;i<dados.capitais.length;i++) {
+				console.log(dados.capitais[i].cidade);
+				if (cidade == dados.capitais[i].cidade) {
+					resposta = true;
+					break;
+				}
+			}
+			return resposta;
+		}
+		</script>
+	</body>
+</html>

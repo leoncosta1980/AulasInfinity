@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html>
+    <body>
+		<p>Atividade 2: Lojas</p>
+		<form>
+			Nome da loja: <input id="loja" type="text"><br>
+			Cidade: <input id="cidade" type="text"><br>
+			Valor mensal de venda: <input id="valor" type="text"><br><br>
+			<input id="btenv" type="button" value="Enviar" onclick="trataForm()">
+			<input id="btref" type="button" value="Recarregar" onclick="location.reload()" 
+					style="display:none">
+		</form>
+		<p id="resp"></p>
+		<script>
+		function trataForm() {
+			try {
+				document.getElementById("resp").innerHTML = "";
+				var lj = document.getElementById("loja").value;
+				var cd = document.getElementById("cidade").value;
+				var vl = document.getElementById("valor").value;
+				if (!lj | !cd | !vl) { 
+					throw "Todos os campos devem ser preenchidos"; }
+				if (vl < 0) { 
+					throw "Total de vendas não pode ser negativo"; }
+			} 
+			catch (e) {
+				document.getElementById("resp").innerHTML = 
+						"Aconteceu um erro: " + e;
+			}
+			finally {
+				document.getElementById("btref").style="display:block"; 
+			}
+		}
+		</script>
+	</body>
+</html>

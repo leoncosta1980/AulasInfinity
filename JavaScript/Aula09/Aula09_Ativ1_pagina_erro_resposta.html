@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+		<p>Informe um número entre 5 e 10</p>
+		<input id="entrada" type="text">
+		<button type="button" onclick="trataValor()">
+			Testar valor</button>
+		<p id="resp"></p>
+		<script>
+		function trataValor() {
+			try {
+				let x = document.getElementById("entrada").value;
+				let y = funcInexistente(x);
+				document.getElementById("resp").innerHTML = 
+						"A resposta é " + y;
+			} catch (e) {
+				document.getElementById("resp").innerHTML = 
+						"Aconteceu um erro: " + e.message;
+			}
+		}
+		</script>
+	</body>
+</html>
