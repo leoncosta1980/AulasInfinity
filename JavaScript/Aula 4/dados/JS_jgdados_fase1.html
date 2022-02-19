@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jogo de <Dados-TESTE></Dados-TESTE></title>
+    <style>
+        .alinhamento {
+            width: 500px;
+            text-align: center;
+            margin: auto;
+        }
+        .topo {
+            background-color: coral;
+        }
+        .tabuleiro {
+            border: 1px solid black;
+            background-color: burlywood;
+            padding: 20px;
+        }
+        .resultado {
+           border-radius: 25px;
+           border: 1px solid black;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="topo alinhamento">
+            <h1>Jogo de Dados Teste</h1>
+        </div>
+        <div class="tabuleiro alinhamento">
+            <p>Clique aqui para sortear os dados:</p>
+            <button onclick="setInterval(firula(), .01);">Firula</button>
+            <button onclick="sorteio();">Sortear</button>
+            <br><br>
+            <h3>Computador:</h3>
+            <div id="dadosCPU">
+                <img src="dadoInterrog.png"><img src="dadoInterrog.png"><img src="dadoInterrog.png">
+            </div>
+            <br><br>
+            <h3>Jogador:</h3>
+            <div id="dadosJogador">
+                <img src="dadoInterrog.png"><img src="dadoInterrog.png"><img src="dadoInterrog.png">
+            </div>
+            <br><br>
+            <p class="resultado alinhamento">
+                Aqui vai aparecer mensagem informando quem venceu.
+            </p>
+        </div>
+        <script>
+            const dadosCPU = [];
+            const dadosjogador = [];
+            var myVar;
+
+            function sorteio(){
+
+                clearInterval(myVar);
+                
+                for (let i = 0; i < 3; i++){
+                    dadosCPU[i] = Math.floor(Math.random() * 6 ) + 1;
+                    dadosJogador[i] = Math.floor(Math.random() * 6 ) + 1;
+                }
+
+                document.getElementById("dadosCPU").innerHTML = 
+                `<img src="dado${dadosCPU[0]}.png">
+                 <img src="dado${dadosCPU[1]}.png">
+                 <img src="dado${dadosCPU[2]}.png">`;
+
+                 document.getElementById("dadosJogador").innerHTML = 
+                `<img src="dado${dadosJogador[0]}.png">
+                 <img src="dado${dadosJogador[1]}.png">
+                 <img src="dado${dadosJogador[2]}.png">`;
+ 
+            }
+
+            function firula(){
+                myVar = setInterval(pseudoSorteio, 1000);
+
+            }
+
+            function pseudoSorteio() {
+                for (let i = 0; i < 3; i++){
+                    dadosCPU[i] = Math.floor(Math.random() * 6 ) + 1;
+                    //dadosJogador[i] = Math.floor(Math.random() * 6 ) + 1;
+                }
+
+                document.getElementById("dadosCPU").innerHTML = 
+                `<img src="dado${dadosCPU[0]}.png">
+                 <img src="dado${dadosCPU[1]}.png">
+                 <img src="dado${dadosCPU[2]}.png">`;
+
+                }
+
+        </script>
+    </body>
+</html>

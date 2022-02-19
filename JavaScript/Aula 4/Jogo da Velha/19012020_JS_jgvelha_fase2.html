@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>Jogo da Velha - fase 2</title>
+        <style>
+            .topo {
+                width: 450; height: 90px; margin:auto; 
+                text-align: center;
+            }
+            .tabuleiro {
+                width: 370px; margin: auto;
+                border: 2px solid black;
+                background-color: lightgray;
+            }
+            .casa {
+                background-color: rgb(152, 176, 206);
+                width: 110px; height: 110px;
+                margin: 5px; border-radius: 10px;
+                text-align: center; vertical-align: middle;
+            }
+            .reset {
+                background-color: blue; color:white;
+                width:115px; margin-left: 125px; margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topo">
+            <h1>Jogo da Velha - F2: CSS</h1>
+            <p>Mensagem do jogo (vez/fim)</p>
+        </div>
+        <div class="tabuleiro">
+                <button id="0" class="casa" onclick="jogar(this)"></button>
+                <button id="1" class="casa" onclick="jogar(this)"></button>
+                <button id="2"class="casa" onclick="jogar(this)"></button>
+                <br>
+                <button id="3"class="casa" onclick="jogar(this)"></button>
+                <button id="4"class="casa" onclick="jogar(this)"></button>
+                <button id="5"class="casa" onclick="jogar(this)"></button>
+                <br>
+                <button id="6"class="casa" onclick="jogar(this)"></button>
+                <button id="7"class="casa" onclick="jogar(this)"></button>
+                <button id="8"class="casa" onclick="jogar(this)"></button>
+                <br>
+                <button class="reset">Reiniciar</button>                
+        </div>
+
+        <script>
+            var jogador = 'x';
+            var jogadas = [8];
+
+            var gameover = false;
+
+            function jogar(btn){
+                btn.innerHTML = ` <img src="${jogador}.png">` ;
+                jogadas[btn.id] = jogador;
+                
+                testaVencedor();
+                //jogador = jogador == 'x' ? 'o' : 'x';
+
+                if (jogador == 'x')
+                    jogador = 'o';
+                else
+                    jogador = 'x';
+            }
+
+            function testaVencedor(){
+                console.log(jogadas);
+
+                for (let i = 0; i <= 6; i+=3){ //testando as linhas
+                    
+                    if (jogadas[i] != jogador)
+                        continue;
+
+                   if ((jogadas[i] == jogadas[i+1]) && (jogadas[i] == jogadas[i+2])){
+                        gameover = true;
+                        console.log(gameover);
+                   }
+                   
+                }
+
+                //for para teste de colunas
+
+                
+                //if para testes de diagonais
+
+
+                if (gameover){
+                       alert('O jogador ' + jogador + ' venceu!');
+                   }
+            }
+        </script>
+    </body>
+</html>

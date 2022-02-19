@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Teste</title>
+    </head>
+    <body>
+            <p>Clique aqui para sortear:</p>
+            <button onclick="sortear()">Sortear</button>
+            <p id="msg">Aqui vai aparecer o valor sorteado.</p>
+        </div>
+
+        <script>
+            function sortear() {
+                num = (Math.random() * 6) + 1;
+                num1 = Math.floor(num);
+                num2 = Math.ceil(num);
+                document.getElementById("msg").innerHTML = 
+                    "número sorteado: "+ num1 + "/" + num2;
+            }
+        </script>
+    </body>
+</html>

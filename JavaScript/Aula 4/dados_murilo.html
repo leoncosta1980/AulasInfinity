@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <title>Jogo de Dados - fase 2</title>
+        <style>
+            .topo {
+                width: 500; height: 60px; margin:auto; 
+                text-align: center;
+            }
+            .tabuleiro {
+                width: 500px; margin: auto;
+                text-align: center;
+                border: 2px solid black;
+                background-color: lightsteelblue;
+            }
+            #msg {
+                font-weight: bolder; margin: 15px;
+                border: 2px solid black; border-radius: 10px;
+                background-color: white;
+            }
+            .dados {
+                border: 1px solid black; border-radius: 10px;
+                margin: 20px; background-color: white;
+            }
+            img {
+                margin:5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topo">
+            <h1>Jogo de Dados (F2: CSS)</h1>
+        </div>
+        <div class="tabuleiro">
+            <p>Clique aqui para sortear os dados: <button onclick="sortear()">Sortear</button></p>
+            <h3>Computador:</h3>
+            <div class="dados">
+                <img src="dadoInterrog.png" id="cpu1" class="dado">
+                <img src="dadoInterrog.png" id="cpu2" class="dado">
+                <img src="dadoInterrog.png" id="cpu3" class="dado">
+            </div>
+            <h3>Jogador:</h3>
+            <div class="dados">
+                <img src="dadoInterrog.png" id="p1" class="dado">
+                <img src="dadoInterrog.png" id="p2" class="dado">
+                <img src="dadoInterrog.png" id="p3" class="dado">
+            </div>
+            <br>
+            <p id="msg">Aqui vai aparecer mensagem informando quem venceu.</p>
+            
+        </div>
+        <br><br>
+        <div class="tabuleiro">
+            <h2>Ranking</h2>
+            <div id="ranking">
+            </div>
+        </div>
+        <script>
+            var dadosCPU = [];
+            var dadosPlayer = [];
+
+            var historico = [];
+
+            function sortear(){
+                var totalCPU = 0;
+                var totalPlayer = 0;
+
+                for (let i = 0; i < 3; i++){
+                    dadosCPU[i] = Math.floor(Math.random() * 6) + 1;
+                    dadosPlayer[i] = Math.floor(Math.random() * 6) + 1;
+                    totalCPU += dadosCPU[i];
+                    totalPlayer += dadosPlayer[i];
+                }
+                console.log(dadosCPU);
+                console.log(dadosPlayer);
+
+                console.log(totalCPU);
+                console.log(totalPlayer);
+
+                // document.getElementById('cpu1').src = "dado" + dadosCPU[0] + ".png";
+                // document.getElementById('cpu2').src = "dado" + dadosCPU[1] + ".png";
+                // document.getElementById('cpu3').src = "dado" + dadosCPU[2] + ".png";
+
+                // document.getElementById('p1').src = "dado" + dadosPlayer[0] + ".png";
+                // document.getElementById('p2').src = "dado" + dadosPlayer[1] + ".png";
+                // document.getElementById('p3').src = "dado" + dadosPlayer[2] + ".png";
+
+                let dados = document.querySelectorAll('.dado');
+                for (let i = 0; i < 3; i++){
+                    dados[i].src = "dado" + dadosCPU[i] + ".png";
+                    dados[i+3].src = "dado" + dadosPlayer[i] + ".png";
+                }
+                
+                let msg = "";
+                if (totalCPU > totalPlayer){
+                    //CPU Ganhou
+                    msg = "CPU venceu de " + totalCPU + " x " + totalPlayer;
+                }else if (totalPlayer > totalCPU){
+                    //Player Ganhou
+                    msg = "Jogador venceu de " + totalPlayer + " x " + totalCPU;
+                }else{
+                    //empatou
+                    msg = "O jogo empatou!";
+                }
+
+                document.getElementById('msg').innerHTML = msg;
+                historico.push(msg);
+                console.log(historico);
+                document.getElementById('ranking').innerHTML = format(historico);
+            }
+
+            function format(ranking){
+                let resultado = '';
+                for (let i= 0; i < ranking.length; i++){
+                    resultado += ranking[i] + '<br>';
+                }
+                return resultado;
+            }
+        </script>
+    </body>
+</html>
